@@ -1,0 +1,53 @@
+.task {
+	background: rgba(255, 255, 255, 0.15);
+	-webkit-backdrop-filter: blur(45px);
+	backdrop-filter: blur(45px);
+	box-shadow: -1px 10px 31px -11px rgba(0, 0, 0, 0.61);
+	-webkit-box-shadow: -1px 10px 31px -11px rgba(0, 0, 0, 0.61);
+	-moz-box-shadow: -1px 10px 31px -11px rgba(0, 0, 0, 0.61);
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 1.5rem;
+	margin: 1rem 0.5rem;
+	border-radius: 2rem;
+	color: #0e202c;
+	.icons {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
+		cursor: pointer;
+
+		.edit-btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-image: linear-gradient(to top, #0250c5 0%, #d43f8d 100%);
+			color: #f0f8ffcc;
+			font-size: 1.5rem;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+
+			transition: all ease-in-out 3ms;
+			&:hover {
+				transform: scale(1.15);
+			}
+		}
+		.delete-btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-image: linear-gradient(to top, #0250c5 0%, #d43f8d 100%);
+			color: rgba(240, 248, 255, 0.8);
+			font-size: 1.5rem;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+
+			transition: all ease-in-out 3ms;
+			&:hover {
+				transform: scale(1.15);
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+.section-center {
+	max-width: 1170px;
+	margin: 0 auto;
+	padding: 1rem;
+	height: calc(100vh - 152px);
+}
+
+.container {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

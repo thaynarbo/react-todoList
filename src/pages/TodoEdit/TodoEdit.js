@@ -1,47 +1,53 @@
 import React, { useState, useEffect } from 'react';
-import './TodoAdd.scss';
+import './TodoEdit.scss';
 import { Link } from 'react-router-dom';
 import { Api } from '../../apis/api';
 import DatePicker from 'react-datepicker';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import 'react-datepicker/dist/react-datepicker.css';
-import { format } from 'date-fns/esm';
 
-function TodoAdd(props) {
+const TodoEdit = (props) => {
 	const [startDate, setStartDate] = useState(new Date());
+	const id = props.match.params.id;
+	const [fields, setFields] = useState({});
+
+	const getTaskById = async () => {
+		const response = await Api.fetchGetById(id);
+		const data = await response.json();
+		setFields(data);
+	};
+
+	useEffect(() => {
+		getTaskById();
+	}, []);
+
+	const handleFieldsChange = (evento) => {
+		const newValues = { ...fields };
+		newValues[evento.target.name] = evento.target.value;
+		setFields(newValues);
+	};
+
 	const handleSubmit = async (evento) => {
 		evento.preventDefault();
-		const titulo = evento.target.titulo.value;
-		const descricao = evento.target.descricao.value;
-		const status = evento.target.status.value;
-		const prioridade = parseInt(evento.target.prioridade.value);
-		const prazo = format(startDate, 'dd/MM/yyyy');
-
-		const Task = {
-			titulo: titulo,
-			descricao: descricao,
-			status: status,
-			prioridade: prioridade,
-			prazo: prazo,
-		};
-		const response = await Api.fetchPost(Task);
-		const data = await response;
-		return data;
+		const dados = { ...fields };
+		const result = await Api.fetchPut(dados, id);
+		const response = await result.json();
+		props.history.push('/');
 	};
 
 	const submit = () => {
 		confirmAlert({
-			title: 'Confirm to submit',
-			message: 'Are you sure to do this.',
+			title: 'Atualização',
+			message: 'Você quer mesmo atualizar?',
 			buttons: [
 				{
-					label: 'Yes',
+					label: 'Sim',
 					onClick: () => props.history.push('/'),
 				},
 				{
-					label: 'No',
-					onClick: () => alert('Click No'),
+					label: 'Não',
+					onClick: () => props.history.push(`/editTask/${id}`),
 				},
 			],
 		});
@@ -51,9 +57,21 @@ function TodoAdd(props) {
 		<div className='section-center form-center'>
 			<form className='form' onSubmit={handleSubmit}>
 				<label htmlFor='titulo'>Titulo</label>
-				<input type='text' name='titulo' id='titulo' />
+				<input
+					type='text'
+					name='titulo'
+					id='titulo'
+					value={fields.titulo}
+					onChange={handleFieldsChange}
+				/>
 				<label htmlFor='descricao'>Descrição</label>
-				<input type='text' name='descricao' id='descricao' />
+				<input
+					type='text'
+					name='descricao'
+					id='descricao'
+					value={fields.descricao}
+					onChange={handleFieldsChange}
+				/>
 				<div className='status-container'>
 					<label>Status</label>
 					<div className='btn-container'>
@@ -64,6 +82,7 @@ function TodoAdd(props) {
 								name='status'
 								value='fazer'
 								id='fazer'
+								onChange={handleFieldsChange}
 							/>
 							<label htmlFor='fazer' className='label'>
 								fazer
@@ -76,6 +95,7 @@ function TodoAdd(props) {
 								value='fazendo'
 								id='fazendo'
 								className='radio-btn'
+								onChange={handleFieldsChange}
 							/>
 							<label htmlFor='fazendo' className='label'>
 								fazendo
@@ -88,6 +108,7 @@ function TodoAdd(props) {
 								value='feito'
 								id='feito'
 								className='radio-btn'
+								onChange={handleFieldsChange}
 							/>
 							<label htmlFor='feito' className='label'>
 								feito
@@ -105,6 +126,7 @@ function TodoAdd(props) {
 								value='1'
 								id='baixa'
 								className='radio-btn'
+								onChange={handleFieldsChange}
 							/>
 							<label htmlFor='baixa' className='label'>
 								baixa
@@ -117,6 +139,7 @@ function TodoAdd(props) {
 								value='2'
 								id='media'
 								className='radio-btn'
+								onChange={handleFieldsChange}
 							/>
 							<label htmlFor='media' className='label'>
 								média
@@ -129,6 +152,7 @@ function TodoAdd(props) {
 								value='3'
 								id='alta'
 								className='radio-btn'
+								onChange={handleFieldsChange}
 							/>
 							<label for='alta' className='label'>
 								alta
@@ -137,8 +161,9 @@ function TodoAdd(props) {
 					</div>
 				</div>
 
-				<label>Prazo</label>
+				<label htmlFor='data'>Prazo</label>
 				<DatePicker
+					id='data'
 					selected={startDate}
 					onChange={(date) => setStartDate(date)}
 					dateFormat='dd/MM/yyyy'
@@ -152,6 +177,6 @@ function TodoAdd(props) {
 			</form>
 		</div>
 	);
-}
+};
 
-export default TodoAdd;
+export default TodoEdit;

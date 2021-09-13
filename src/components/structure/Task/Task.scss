@@ -1,3 +1,6 @@
+a {
+	text-decoration: none;
+}
 .task {
 	background: rgba(255, 255, 255, 0.15);
 	-webkit-backdrop-filter: blur(45px);
@@ -21,8 +24,9 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background-image: linear-gradient(to top, #0250c5 0%, #d43f8d 100%);
-			color: #f0f8ffcc;
+			background-image: linear-gradient(to top, #0250c5 0%, #3fc3d4 100%);
+			color: rgba(240, 248, 255, 0.8);
+
 			font-size: 1.5rem;
 			width: 40px;
 			height: 40px;
@@ -32,12 +36,16 @@
 			&:hover {
 				transform: scale(1.15);
 			}
+			.eye-icon {
+				text-decoration: none;
+				color: rgba(240, 248, 255, 0.8);
+			}
 		}
 		.delete-btn {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background-image: linear-gradient(to top, #0250c5 0%, #d43f8d 100%);
+			background-image: linear-gradient(to top, #0250c5 0%, #3fc3d4 100%);
 			color: rgba(240, 248, 255, 0.8);
 			font-size: 1.5rem;
 			width: 40px;

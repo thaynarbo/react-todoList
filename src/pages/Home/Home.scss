@@ -4,10 +4,14 @@
 	padding: 1rem;
 	height: calc(100vh - 152px);
 }
+.content {
+	min-height: calc(100vh - 152px);
+}
 
 .container {
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 3rem;
 }

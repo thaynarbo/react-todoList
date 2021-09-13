@@ -2,20 +2,18 @@ import React, { useState, useEffect } from 'react';
 import './TodoCard.scss';
 import Buttons from '../Buttons/Buttons';
 import Task from '../Task/Task';
+import { Api } from '../../../apis/api';
 
 function TodoCard() {
 	const [tasks, setTasks] = useState([]);
 
 	useEffect(() => {
 		getTask();
-	}, []);
-
-	const url = 'https://backend-todolist-thay.herokuapp.com/todo';
+	}, [tasks]);
 
 	const getTask = async () => {
-		const response = await fetch(url);
+		const response = await Api.fetchGet();
 		const data = await response.json();
-		console.log(data);
 		setTasks(data);
 	};
 

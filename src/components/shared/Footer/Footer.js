@@ -14,7 +14,6 @@ function Footer() {
 						<a href=''>
 							<FontAwesomeIcon
 								icon={faGithub}
-								size='lg'
 								color='#f0f8ffcc'
 							/>
 						</a>

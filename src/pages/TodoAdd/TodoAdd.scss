@@ -1,0 +1,103 @@
+$primary-color: #fff;
+$accent-color: #0250c5;
+
+.form-center {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	background: rgba(255, 255, 255, 0.15);
+	min-width: 30rem;
+	min-height: 10rem;
+	padding: 2rem 3rem;
+	border-radius: 20px;
+	box-shadow: -1px 10px 26px -8px rgba(0, 0, 0, 0.48);
+	-webkit-box-shadow: -1px 10px 26px -8px rgba(0, 0, 0, 0.48);
+	-moz-box-shadow: -1px 10px 26px -8px rgba(0, 0, 0, 0.48);
+	label {
+		width: 10rem;
+		padding: 1rem 0;
+		font-size: 1.3rem;
+	}
+	input {
+		border: none;
+		padding: 10px 5px 10px 10px;
+		border-radius: 15px;
+		outline: none;
+		font-size: 1.2rem;
+		box-shadow: -1px 10px 26px -8px rgba(0, 0, 0, 0.25);
+		-webkit-box-shadow: -1px 10px 26px -8px rgba(0, 0, 0, 0.15);
+		-moz-box-shadow: -1px 10px 26px -8px rgba(0, 0, 0, 0.15);
+		transition: transform 0.5s 0s ease;
+		&:focus {
+			background: rgba(255, 255, 255, 0.3);
+			caret-color: #0250c5;
+			transform: scale(1.008);
+		}
+	}
+	.status-container {
+		display: flex;
+		flex-direction: column;
+
+		input {
+			min-width: none;
+			margin: 0 15px;
+		}
+	}
+	.btn-container {
+		display: flex;
+		gap: 1rem;
+	}
+}
+
+.item {
+	position: relative;
+	&:hover > .label {
+		color: $accent-color;
+		&::before {
+			border: 0.5rem solid $accent-color;
+			margin-right: 0.5rem;
+		}
+	}
+}
+.radio-btn {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	&:checked + .label {
+		color: $accent-color;
+		&::before {
+			margin-right: 0.5rem;
+			border: 0.5rem solid $accent-color;
+			background: $primary-color;
+		}
+	}
+}
+
+.label {
+	display: flex;
+	align-items: center;
+	padding: 0.75rem 0;
+	color: black;
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.25s linear;
+}
+
+.label::before {
+	display: inline-block;
+	content: '';
+	height: 1.125rem;
+	width: 1.125rem;
+	margin-right: 0.3rem;
+	border: 0.5rem solid $primary-color;
+	border-radius: 50%;
+	transition: all 0.25s linear;
+}

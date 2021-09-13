@@ -4,9 +4,9 @@ import TodoCard from '../../components/structure/TodoCard/TodoCard';
 
 function Home() {
 	return (
-		<div className='section-center'>
+		<div className='section-center' className='content'>
 			<div className='container'>
-				<TodoCard></TodoCard>
+				<TodoCard />
 			</div>
 		</div>
 	);

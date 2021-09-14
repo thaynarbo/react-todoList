@@ -15,4 +15,17 @@ function Buttons() {
 	);
 }
 
+export function ButtonForm(props) {
+	return (
+		<>
+			<button
+				className='btn-enviar'
+				type={props.type}
+				onClick={props.onClick}
+			>
+				{props.name}
+			</button>
+		</>
+	);
+}
 export default Buttons;

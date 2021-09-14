@@ -19,7 +19,7 @@ function Footer() {
 						</a>
 					</li>
 					<li>
-						<a href=''>
+						<a href='' target='_blank'>
 							<FontAwesomeIcon
 								icon={faInstagram}
 								size='lg '
@@ -28,7 +28,7 @@ function Footer() {
 						</a>
 					</li>
 					<li>
-						<a href=''>
+						<a href='' target='_blank'>
 							<FontAwesomeIcon
 								icon={faLinkedin}
 								size='lg'

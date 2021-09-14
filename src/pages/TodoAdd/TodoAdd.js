@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './TodoAdd.scss';
 import { Link } from 'react-router-dom';
 import { Api } from '../../apis/api';
 import DatePicker from 'react-datepicker';
+import { ButtonForm } from '../../components/structure/Buttons/Buttons';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import 'react-datepicker/dist/react-datepicker.css';
@@ -144,11 +145,12 @@ function TodoAdd(props) {
 					dateFormat='dd/MM/yyyy'
 					minDate={new Date()}
 				/>
-
-				<Link to='/'>Cancelar</Link>
-				<button type='submit' onClick={submit} className='submit-btn'>
-					Enviar
-				</button>
+				<div className='btn-container btn-section'>
+					<Link to='/'>
+						<ButtonForm name='Cancelar' />
+					</Link>
+					<ButtonForm name='Enviar' type='submit' onClick={submit} />
+				</div>
 			</form>
 		</div>
 	);

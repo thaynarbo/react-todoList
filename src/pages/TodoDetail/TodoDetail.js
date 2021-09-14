@@ -17,6 +17,7 @@ function TodoDetail(props) {
 	};
 	const prazo = task.prazo;
 	console.log(prazo);
+
 	switch (task.prioridade) {
 		case 1:
 			task.prioridade = 'baixa';

@@ -24,6 +24,7 @@ function Task(props) {
 					label: 'Yes',
 					onClick: async () => {
 						const resposta = await Api.fetchDelete(id);
+						return resposta;
 					},
 				},
 				{

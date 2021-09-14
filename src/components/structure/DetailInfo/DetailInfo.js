@@ -14,7 +14,7 @@ function DetailInfo(props) {
 			<h2>Prazo</h2>
 			<p>{props.prazo}</p>
 			<h2>Data de criação:</h2>
-			<p>{props.dataCriacao}</p>
+			<p>{props.createdAt}</p>
 		</div>
 	);
 }

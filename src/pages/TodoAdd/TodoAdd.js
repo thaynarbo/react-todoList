@@ -13,6 +13,7 @@ function TodoAdd(props) {
 	const [startDate, setStartDate] = useState(new Date());
 	const handleSubmit = async (evento) => {
 		evento.preventDefault();
+
 		const titulo = evento.target.titulo.value;
 		const descricao = evento.target.descricao.value;
 		const status = evento.target.status.value;
@@ -26,23 +27,23 @@ function TodoAdd(props) {
 			prioridade: prioridade,
 			prazo: prazo,
 		};
+
 		const response = await Api.fetchPost(Task);
 		const data = await response;
-		return data;
 	};
 
 	const submit = () => {
 		confirmAlert({
-			title: 'Confirm to submit',
-			message: 'Are you sure to do this.',
+			title: 'Confirme para adicionar',
+			message: 'Você tem certeza que quer adicionar uma nova tarefa?',
 			buttons: [
 				{
-					label: 'Yes',
+					label: 'Sim',
 					onClick: () => props.history.push('/'),
 				},
 				{
-					label: 'No',
-					onClick: () => alert('Click No'),
+					label: 'Não',
+					onClick: () => props.history.push('/addTask'),
 				},
 			],
 		});

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import './TodoDetail.scss';
 import DetailInfo from '../../components/structure/DetailInfo/DetailInfo';
 import { Link } from 'react-router-dom';
 import { Api } from '../../apis/api';
+
 function TodoDetail(props) {
 	const [task, setTask] = useState({});
 	useEffect(() => {
@@ -15,8 +17,6 @@ function TodoDetail(props) {
 		const data = await response.json();
 		setTask(data);
 	};
-	const prazo = task.prazo;
-	console.log(prazo);
 
 	switch (task.prioridade) {
 		case 1:
@@ -29,26 +29,31 @@ function TodoDetail(props) {
 			task.prioridade = 'alta';
 			break;
 	}
+
 	return (
 		<div className='section-center'>
-			<h1>Detalhes da tarefa</h1>
-			<div>
-				<DetailInfo
-					titulo={task.titulo}
-					status={task.status}
-					desc={task.descricao}
-					prioridade={task.prioridade}
-					dataCriacao={task.dataCriacao}
-					prazo={prazo}
-				/>
-			</div>
-			<div>
-				<Link to={`/editTask/${task._id}`}>
-					<button>Editar</button>
-				</Link>
-				<Link to='/'>
-					<button>Voltar</button>
-				</Link>
+			<div className='detail-container'>
+				<h1>Detalhes da tarefa</h1>
+				<div>
+					<DetailInfo
+						titulo={task.titulo}
+						status={task.status}
+						desc={task.descricao}
+						prioridade={task.prioridade}
+						dataCriacao={new Date(task.dataCriacao).toLocaleString(
+							'pt-BR'
+						)}
+						prazo={task.prazo}
+					/>
+				</div>
+				<div>
+					<Link to={`/editTask/${task._id}`}>
+						<button>Editar</button>
+					</Link>
+					<Link to='/'>
+						<button>Voltar</button>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);

@@ -9,7 +9,7 @@ function TodoCard() {
 
 	useEffect(() => {
 		getTask();
-	}, [tasks]);
+	}, []);
 
 	const getTask = async () => {
 		const response = await Api.fetchGet();

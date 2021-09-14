@@ -6,7 +6,10 @@ function Header() {
 		<header className='header'>
 			<section className='section-center'>
 				<ul className='list'>
-					<img src='https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png' />
+					<img
+						alt='placeholder'
+						src='https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png'
+					/>
 					<div className='nav-links'>
 						<Link to='/'>
 							<li>Home</li>

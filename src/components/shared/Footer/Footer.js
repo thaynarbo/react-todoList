@@ -11,27 +11,36 @@ function Footer() {
 			<div>
 				<ul className='icons'>
 					<li>
-						<a href=''>
+						<a href='https://github.com/thaynarbo'>
 							<FontAwesomeIcon
 								icon={faGithub}
 								color='#f0f8ffcc'
+								rel='noreferrer'
 							/>
 						</a>
 					</li>
 					<li>
-						<a href='' target='_blank'>
+						<a
+							href='https://www.instagram.com/thaynarbrn'
+							target='_blank'
+							rel='noreferrer'
+						>
 							<FontAwesomeIcon
+								size='lg'
 								icon={faInstagram}
-								size='lg '
 								color='#f0f8ffcc'
 							/>
 						</a>
 					</li>
 					<li>
-						<a href='' target='_blank'>
+						<a
+							href='https://www.linkedin.com/in/thaynar-brand%C3%A3o/'
+							target='_blank'
+							rel='noreferrer'
+						>
 							<FontAwesomeIcon
-								icon={faLinkedin}
 								size='lg'
+								icon={faLinkedin}
 								color='#f0f8ffcc'
 							/>
 						</a>

@@ -83,6 +83,7 @@ const TodoEdit = (props) => {
 								name='status'
 								value='fazer'
 								id='fazer'
+								checked={fields.status === 'fazer'}
 								onChange={handleFieldsChange}
 							/>
 							<label htmlFor='fazer' className='label'>
@@ -96,6 +97,7 @@ const TodoEdit = (props) => {
 								value='fazendo'
 								id='fazendo'
 								className='radio-btn'
+								checked={fields.status === 'fazendo'}
 								onChange={handleFieldsChange}
 							/>
 							<label htmlFor='fazendo' className='label'>
@@ -109,6 +111,7 @@ const TodoEdit = (props) => {
 								value='feito'
 								id='feito'
 								className='radio-btn'
+								checked={fields.status === 'feito'}
 								onChange={handleFieldsChange}
 							/>
 							<label htmlFor='feito' className='label'>
@@ -126,6 +129,7 @@ const TodoEdit = (props) => {
 								name='prioridade'
 								value='1'
 								id='baixa'
+								checked={fields.prioridade === '1'}
 								className='radio-btn'
 								onChange={handleFieldsChange}
 							/>
@@ -139,6 +143,7 @@ const TodoEdit = (props) => {
 								name='prioridade'
 								value='2'
 								id='media'
+								checked={fields.prioridade === '2'}
 								className='radio-btn'
 								onChange={handleFieldsChange}
 							/>
@@ -152,6 +157,7 @@ const TodoEdit = (props) => {
 								name='prioridade'
 								value='3'
 								id='alta'
+								checked={fields.prioridade === '3'}
 								className='radio-btn'
 								onChange={handleFieldsChange}
 							/>

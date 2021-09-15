@@ -1,5 +1,25 @@
-.detail-container {
-	background: #fff;
-	max-width: 500px;
-	padding: 1rem;
+.detail-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.detail-container {
+		background: rgba(255, 255, 255, 0.3);
+		max-width: 500px;
+		min-width: 400px;
+		padding: 2rem;
+		border-radius: 20px;
+		line-height: 1.88rem;
+		h1 {
+			color: #0d1d28;
+			border-bottom: 2.8px solid #0250c5;
+			margin-bottom: 1rem;
+		}
+		.detail-info {
+			p {
+				font-size: 1.3rem;
+				font-weight: 300;
+				color: #323638;
+			}
+		}
+	}
 }

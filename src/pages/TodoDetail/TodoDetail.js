@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './TodoDetail.scss';
 import DetailInfo from '../../components/structure/DetailInfo/DetailInfo';
 import { Link } from 'react-router-dom';
+import { ButtonForm } from '../../components/structure/Buttons/Buttons';
 import { Api } from '../../apis/api';
 
 function TodoDetail(props) {
@@ -31,7 +32,7 @@ function TodoDetail(props) {
 	}
 
 	return (
-		<div className='section-center'>
+		<div className='section-center detail-section'>
 			<div className='detail-container'>
 				<h1>Detalhes da tarefa</h1>
 				<div>
@@ -44,14 +45,15 @@ function TodoDetail(props) {
 							'pt-BR'
 						)}
 						prazo={task.prazo}
+						className='detail-info'
 					/>
 				</div>
 				<div>
 					<Link to={`/editTask/${task._id}`}>
-						<button>Editar</button>
+						<ButtonForm name='Enviar' />
 					</Link>
 					<Link to='/'>
-						<button>Voltar</button>
+						<ButtonForm name='voltar' />
 					</Link>
 				</div>
 			</div>

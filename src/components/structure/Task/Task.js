@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Task.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +9,10 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { Api } from '../../../apis/api';
 
+import { TaskContext } from '../../shared/TaskContext/TaskContext';
+
 function Task(props) {
+	const { taskC, setTasksC } = useContext(TaskContext);
 	const task1 = props.task;
 	const id = task1._id;
 	const history = useHistory();
@@ -22,14 +25,15 @@ function Task(props) {
 			message: 'Você tem certeza que quer deletar a tarefa?',
 			buttons: [
 				{
-					label: 'Yes',
+					label: 'Sim',
 					onClick: async () => {
 						const resposta = await Api.fetchDelete(id);
+						setTasksC(taskC + 1);
 						return resposta;
 					},
 				},
 				{
-					label: 'No',
+					label: 'Não',
 					onClick: () => history.push('/'),
 				},
 			],

@@ -1,6 +1,7 @@
 export const Api = {
 	url: 'https://backend-todolist-thay.herokuapp.com/todo',
 	fetchGet: () => fetch(Api.url),
+	fetchGetSorted: () => fetch(Api.url + '/sortByPriority'),
 	fetchGetById: (id) => fetch(Api.url + '/taskID/' + id),
 	fetchPost: (body) => {
 		return fetch(Api.url + '/new', {

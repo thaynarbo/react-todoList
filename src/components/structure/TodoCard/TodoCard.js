@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './TodoCard.scss';
 import { TaskContext } from '../../shared/TaskContext/TaskContext';
-import Buttons from '../Buttons/Buttons';
+import Buttons, { ButtonForm } from '../Buttons/Buttons';
 import Task from '../Task/Task';
 import { Api } from '../../../apis/api';
 
 function TodoCard() {
 	const { taskC } = useContext(TaskContext);
 	const [tasks, setTasks] = useState([]);
+	const [priority, setPriority] = useState(false);
 
 	useEffect(() => {
 		getTask();
@@ -18,18 +19,49 @@ function TodoCard() {
 		getTask();
 	}, [taskC]);
 
+	useEffect(() => {
+		if (priority) {
+			getTaskbyPriority();
+		} else {
+			getTask();
+		}
+	}, [priority]);
+
 	const getTask = async () => {
 		const response = await Api.fetchGet();
+		const data = await response.json();
+		setTasks(data);
+		return data;
+	};
+	const getTaskbyPriority = async () => {
+		const response = await Api.fetchGetSorted();
 		const data = await response.json();
 		setTasks(data);
 	};
 
 	return (
 		<div className='card'>
+			<div className='order-btns-container'>
+				<button
+					className='order-btn'
+					onClick={() => {
+						setPriority(false);
+					}}
+				>
+					Criação
+				</button>
+				<button
+					className='order-btn'
+					onClick={() => {
+						setPriority(true);
+					}}
+				>
+					Prioridade
+				</button>
+			</div>
 			{tasks.map((task, index) => (
 				<Task task={task} key={task._id} />
 			))}
-
 			<Buttons />
 		</div>
 	);

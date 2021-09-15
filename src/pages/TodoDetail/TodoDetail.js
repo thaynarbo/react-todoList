@@ -50,7 +50,7 @@ function TodoDetail(props) {
 				</div>
 				<div>
 					<Link to={`/editTask/${task._id}`}>
-						<ButtonForm name='Enviar' />
+						<ButtonForm name='Editar' />
 					</Link>
 					<Link to='/'>
 						<ButtonForm name='voltar' />

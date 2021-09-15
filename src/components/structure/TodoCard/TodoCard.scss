@@ -11,4 +11,18 @@
 	box-shadow: -1px 10px 31px -11px rgba(0, 0, 0, 0.61);
 	-webkit-box-shadow: -1px 10px 31px -11px rgba(0, 0, 0, 0.61);
 	-moz-box-shadow: -1px 10px 31px -11px rgba(0, 0, 0, 0.61);
+	.order-btns-container {
+		display: flex;
+
+		justify-content: space-around;
+		.order-btn {
+			background: none;
+			color: #0c1c33;
+			border-radius: 20px;
+			padding: 0.55rem 0.5rem;
+			border: none;
+			font-size: 1.3rem;
+			cursor: pointer;
+		}
+	}
 }

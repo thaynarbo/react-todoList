@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Header() {
 	return (
 		<header className='header'>
-			<section className='section-center'>
+			<section className='nav-center'>
 				<ul className='list'>
 					<img
 						alt='placeholder'
